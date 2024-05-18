@@ -1,41 +1,38 @@
-# Project Title
+# Solidity Assessment
 
-Simple overview of use/purpose.
-
-## Description
-
-An in-depth paragraph about your project and overview of use.
-
-## Getting Started
-
-### Installing
-
-* How/where to download your program
-* Any modifications needed to be made to files/folders
+This is the code for my Solidity Assessment for Metacrafters
 
 ### Executing program
-
-* How to run the program
-* Step-by-step bullets
+These are the codes for initializing and declaring of variables
+*
 ```
-code blocks for commands
+ // public variables here
+    string public tokenName = "Pelep";
+    string public tokenAbbrv = "PJ";
+    uint public totalSupply = 0;
+
+
+    // mapping variable here
+    mapping (address => uint) public balances;
 ```
 
-## Help
+These are the code for the Mint and Burn function
 
-Any advise for common problems or issues.
 ```
-command to run if program contains helper info
-```
-
-## Authors
-
-Contributors names and contact info
-
-ex. Dominique Pizzie  
-ex. [@DomPizzie](https://twitter.com/dompizzie)
+  // mint function
+    function mint (address _address, uint _value) public {
+        totalSupply += _value;
+        balances[_address] += _value;
+    }
 
 
-## License
+    // burn function
+    function burn (address _address, uint _value) public  {
+        if (balances[_address] >= _value) {
+            totalSupply -= _value;
+            balances[_address] -= _value;
+        }
+    }```
 
-This project is licensed under the [NAME HERE] License - see the LICENSE.md file for details
+#
+
